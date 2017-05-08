@@ -3,6 +3,7 @@ BUCHAREST = (44.439, 26.096)
 
 GEOCODE_KEY = 'AIzaSyADavpMHJIkaddSzElHqIFRfTqGs4uWkYc'
 PLACES_KEY = 'AIzaSyBQQr8KkPsUE-QA4wEw_zlKa7oKNZVviQY'
+MATRIX_KEY = 'AIzaSyDZBy-kV9lX5z8XHZjKyTG4y6h0kyIxD6E'
 
 SAMPLE_ORIGIN = ["Strada Clucerului 19, Bucuresti"]
 SAMPLE_DESTINATION = ["Strada Mr. Campeanu Alexandru 24"]
