@@ -16,7 +16,7 @@ class ReturnPlaces():
         # print type(places['results'])
         for item in result['results']:
             # places.append({'location': item['geometry']['location'], 'id': item['id']})
-            places.append(item['id'])
+            places.append(item['place_id'])
         return places
 
 # print search_place_nearby(query='herastrau', location=BUCHAREST, radius=2000, type='park')
