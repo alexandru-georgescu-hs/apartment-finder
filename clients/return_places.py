@@ -1,11 +1,12 @@
 import googlemaps
+from constants import PLACES_KEY
 
 
 class ReturnPlaces():
     # Use Places api:
     # https://github.com/googlemaps/google-maps-services-python/blob/master/googlemaps/places.py
 
-    gmaps = googlemaps.Client(key='AIzaSyBQQr8KkPsUE-QA4wEw_zlKa7oKNZVviQY')
+    gmaps = googlemaps.Client(key=PLACES_KEY)
     def search_place_nearby_id(self, location, radius, type):
         """
         returns a list of dictionaries containing 'location' coordinates and the 'id' for a location
