@@ -10,4 +10,10 @@ class ReturnGeocode():
     gmaps = googlemaps.Client(key=GEOCODE_KEY)
     def return_sector(self, place_id):
         result = self.gmaps.reverse_geocode(latlng=place_id)
-        return result[0]['address_components'][1]['short_name']
+
+        for item in result[0]['address_components']:
+            if 'sector' in item['short_name'].lower():
+                return item['short_name']
+        return None
+
+
