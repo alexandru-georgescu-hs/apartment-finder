@@ -1,6 +1,7 @@
 from clients.return_geocode import ReturnGeocode
 from clients.return_places import ReturnPlaces
 from clients.return_distance_matrix import ReturnDistanceMatrix
+from clients.return_average_prices import ReturnAveragePrices
 
 from constants import SAMPLE_DESTINATION, SAMPLE_ORIGIN, INTEREST_TYPES, DEFAULT_RADIUS, DEFAULT_MODES
 
@@ -9,6 +10,7 @@ class GetApartmentData:
     place = ReturnPlaces()
     geocode = ReturnGeocode()
     distance = ReturnDistanceMatrix()
+    prices = ReturnAveragePrices()
 
     # get Google data from a given address
     def get_address_place(self, address):
@@ -39,8 +41,8 @@ class GetApartmentData:
             distances = self.distance.getAllModesMatrix(address, SAMPLE_DESTINATION)
             for mode in distances.keys():
                 print "%s" % (mode)
-
-
+            avg_price = self.prices.return_average_price(self.geocode.return_sector(place['place_id']))
+            print "Average price in the area is %s EURO/sqm" % avg_price
 
 
 # RUN
