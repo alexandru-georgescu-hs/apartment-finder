@@ -5,4 +5,6 @@ from clients.return_geocode import ReturnGeocode
 client = ReturnGeocode()
 place_id = 'ChIJ8egJWkn_sUART1OVw-Irz80'
 
-print client.return_sector(place_id=place_id)
+sector = client.return_sector(place_id=place_id)
+print sector
+print client.return_district_crime_rate(2016, sector)
