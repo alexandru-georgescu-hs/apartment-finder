@@ -24,7 +24,7 @@ class ReturnDistanceMatrix:
         winner = 0
         for row in matrix['rows']:
             for place in row['elements']:
-                if min_distance is None or min_distance > place['distance']['value'] :
+                if place['status'] == 'OK' and (min_distance is None or min_distance > place['distance']['value']) :
                     min_distance = place['distance']['value']
                     winner = iterator
                 iterator+=1
