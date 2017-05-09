@@ -20,15 +20,17 @@ class ReturnDistanceMatrix:
             destinations.append('place_id:'+place)
         matrix = self.getMatrix(origin,destinations)
         min_distance= None
+        min_distance_string = ""
         iterator = 0
         winner = 0
         for row in matrix['rows']:
             for place in row['elements']:
-                if place['status'] == 'OK' and (min_distance is None or min_distance > place['distance']['value']) :
-                    min_distance = place['distance']['value']
+                if place['status'] == 'OK' and (min_distance is None or min_distance > place['duration']['value']) :
+                    min_distance = place['duration']['value']
+                    min_distance_string= place['duration']['text']
                     winner = iterator
                 iterator+=1
         response = {}
         response['place_id'] = places[winner]
-        response['distance'] = min_distance
+        response['duration'] = min_distance_string
         return response
