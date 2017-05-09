@@ -6,6 +6,9 @@ class ReturnDistanceMatrix:
         self.client = googlemaps.Client(MATRIX_KEY)
 
     def getMatrix(self,origins,destinations,mode=None):
+        combinations = len(origins) * len(destinations)
+        if combinations >100:
+            raise Exception("Too much combination : " + str(combinations))
         return self.client.distance_matrix(origins,destinations,mode)
 
     def getAllModesMatrix(self,origin,destinations):

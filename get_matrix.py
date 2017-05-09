@@ -9,4 +9,4 @@ print "============getAllModesMatrix============="
 print client.getAllModesMatrix(SAMPLE_ORIGIN,SAMPLE_DESTINATION)
 
 print "============getTheClosestPlace============="
-print client.getTheClosestPlace(SAMPLE_ORIGIN,SAMPLE_PLACE_ID)
+print client.getTheClosestPlace('Iuliu Maniu 94-100',SAMPLE_PLACE_ID)
