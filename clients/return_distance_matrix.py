@@ -1,5 +1,5 @@
 import googlemaps
-from constants import default_modes, MATRIX_KEY
+from constants import DEFAULT_MODES, MATRIX_KEY
 
 class ReturnDistanceMatrix:
     def __init__(self):
@@ -7,14 +7,17 @@ class ReturnDistanceMatrix:
 
     def getMatrix(self,origins,destinations,mode=None):
         combinations = len(origins) * len(destinations)
-        if combinations >100:
+        if (not isinstance(origins, str)) and combinations >100:
             raise Exception("Too much combination : " + str(combinations))
         return self.client.distance_matrix(origins,destinations,mode)
 
     def getAllModesMatrix(self,origin,destinations):
         matrix = {}
-        for mode in default_modes:
+        for mode in DEFAULT_MODES:
             matrix[mode] = self.getMatrix(origin,destinations,mode)
+
+            # address, mode, distance, duration
+
         return matrix
 
     def getTheClosestPlace(self,origin,places):

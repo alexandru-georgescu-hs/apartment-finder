@@ -21,24 +21,24 @@ class ReturnPlaces():
         """
         returns a list of place_id's
         """
-        places = []
+        # places = []
+        places = {}
         result = self.gmaps.places_nearby(location, radius=radius, type=type)
 
         for item in result['results']:
-            places.append(item['place_id'])
+            # places.append({'place_id': item['place_id'], 'name': item['name']})
+            places[item['place_id']] = item['name']
+        # import ipdb; ipdb.set_trace()
         return places
-
-
 
     def search_place_nearby_query(self, query, location=None, radius=None, type=None):
         """
         returns a list of dictionaries containing long and lat
         """
-        places = []
         result = self.gmaps.places(query=query, location=location, radius=radius, type=type)
-
-        for item in result['results']:
-            places.append(item['geometry']['location'])
-
-        return places[0]
+        return result['results'][0]
+        # for item in result['results']:
+        #     places.append(item['geometry']['location'])
+        #
+        # return places[0]
 

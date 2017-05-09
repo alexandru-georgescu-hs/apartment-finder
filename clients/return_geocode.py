@@ -10,7 +10,15 @@ class ReturnGeocode():
     gmaps = googlemaps.Client(key=GEOCODE_KEY)
     def return_sector(self, place_id):
         result = self.gmaps.reverse_geocode(latlng=place_id)
-        return result[0]['address_components'][1]['short_name'].split()[-1]
+
+        # print result[0]['address_components']
+        for item in result[0]['address_components']:
+            if 'sublocality_level_1' in item['types']:
+                if 'sector' in item['long_name'].lower():
+                    # print item['long_name']
+                    return item['long_name'].split()[-1]
+        return None
+        # return result[0]['address_components'][1]['short_name'].split()[-1]
 
     def return_district_crime_rate(self, year, sector):
         # Returns the crime rate based on year/sector

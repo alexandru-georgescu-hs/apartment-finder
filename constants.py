@@ -2,15 +2,19 @@
 BUCHAREST = (44.439, 26.096)
 
 GEOCODE_KEY = 'AIzaSyADavpMHJIkaddSzElHqIFRfTqGs4uWkYc'
-PLACES_KEY = 'AIzaSyBQQr8KkPsUE-QA4wEw_zlKa7oKNZVviQY'
+PLACES_KEY = 'AIzaSyAOQIfeLkOkmbwRlf395wFOYweHMomxTHg'
 MATRIX_KEY = 'AIzaSyDZBy-kV9lX5z8XHZjKyTG4y6h0kyIxD6E'
 
-SAMPLE_ORIGIN = ["The Park appartments","Global City Residence","Iuliu Maniu 94-100"]
-SAMPLE_DESTINATION = ["Strada Mr. Campeanu Alexandru 24"]
+SAMPLE_ORIGIN = ["The Park appartments Bucharest","Global City Residence Bucharest","Iuliu Maniu 94-100 Bucharest"]
+SAMPLE_DESTINATION = ["Strada Mr. Campeanu Alexandru 24", "Iolanda Balas Bucharest", "Piata Unirii Bucharest"]
 
 SAMPLE_PLACE_ID = ["ChIJKY2Wd2oCskARMfjunqzJVHU","ChIJwSjue0L_sUAR3K2rAviJECs"]
 
-default_modes = ["walking","driving","bicycling","transit"]
+INTEREST_TYPES = ["park", "subway_station", "shopping_mall"]
+
+DEFAULT_RADIUS = 3000
+
+DEFAULT_MODES = ["walking", "driving", "bicycling", "transit"]
 
 query_items = [
     {
