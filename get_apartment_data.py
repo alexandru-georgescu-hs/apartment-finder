@@ -38,9 +38,14 @@ class GetApartmentData:
                 print u''+ "Closest %s type for %s is %s at %s distance." \
                            % (interest, address, interest_points[closest['place_id']].encode('ascii','replace'), closest['duration'])
 
-            distances = self.distance.getAllModesMatrix(address, SAMPLE_DESTINATION)
-            for mode in distances.keys():
-                print "%s" % (mode)
+            destinations_matrix = self.distance.getAllModesMatrix(address, SAMPLE_DESTINATION)
+
+            for destination in destinations_matrix:
+                print "Distances and Duration time for %s" % (destination['name'])
+                for mode in destination['modes']:
+                    if destination['modes'][mode]:
+                        print "   %s: duration %s , distance %s" % (mode, destination['modes'][mode]['duration']['text'], destination['modes'][mode]['distance']['text'])
+
             avg_price = self.prices.return_average_price(self.geocode.return_sector(place['place_id']))
             print "Average price in the area is %s EURO/sqm" % avg_price
 
