@@ -9,6 +9,7 @@ web:
   volumes:
     - /usr/src/app
     - /usr/src/app/static
+    - ./web:/usr/src/app
   env_file: .env
   environment:
     DEBUG: 'true'
